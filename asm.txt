@@ -1,0 +1,148 @@
+PUSH 0
+PUSH 0
+POPREG DX
+POPM [DX]
+
+
+PUSH 0
+PUSH 1
+POPREG DX
+POPM [DX]
+
+
+PUSH 0
+PUSH 2
+POPREG DX
+POPM [DX]
+
+
+PUSH 99
+PUSH 3
+POPREG DX
+POPM [DX]
+
+
+IN
+PUSH 0
+POPREG DX
+POPM [DX]
+
+
+:9
+PUSH 3
+POPREG DX
+PUSHM [DX]
+PUSH 0
+CALL :1   // сравнение(>)
+PUSH 0
+JE :10
+PUSH 3
+POPREG DX
+PUSHM [DX]
+PUSH 10
+PUSH 3
+POPREG DX
+PUSHM [DX]
+PUSH 10
+DIV
+MUL
+SUB
+PUSH 1
+POPREG DX
+POPM [DX]
+
+
+PUSH 3
+POPREG DX
+PUSHM [DX]
+PUSH 10
+DIV
+PUSH 2
+POPREG DX
+POPM [DX]
+
+
+PUSH 1
+POPREG DX
+PUSHM [DX]
+PUSH 4
+SUB
+PUSH 1
+POPREG DX
+PUSHM [DX]
+PUSH 4
+SUB
+MUL
+PUSH 2
+POPREG DX
+PUSHM [DX]
+PUSH 4
+SUB
+PUSH 2
+POPREG DX
+PUSHM [DX]
+PUSH 4
+SUB
+MUL
+ADD
+PUSH 0
+POPREG DX
+PUSHM [DX]
+CALL :4   // сравнение(<=)
+PUSH 1
+JE :11   // переход, если if выполнен
+JMP :12  // иначе - пропуск тела if
+
+
+:11    // тело if
+PUSH 111
+PUSH 1
+POPREG DX
+PUSHM [DX]
+PUSH 10
+MUL
+PUSH 2
+POPREG DX
+PUSHM [DX]
+ADD
+POPREG DX
+POPM [DX]
+
+
+:12  // пропуск тела if
+PUSH 3
+POPREG DX
+PUSHM [DX]
+PUSH 1
+SUB
+PUSH 3
+POPREG DX
+POPM [DX]
+
+
+JMP :9
+
+
+:10
+DRAW
+HLT
+
+
+:1
+JA :7   // если >, то перейти
+PUSH 0   // иначе
+RET
+:7
+PUSH 1
+RET
+
+
+:4
+JBE :7   // если <=, то перейти
+PUSH 0
+RET
+:7
+PUSH 1
+RET
+
+
