@@ -17,17 +17,17 @@ const int LENTH_OF_ASN_PHRASE = 5;
 const int NUM_OF_KEY_WORDS = 11;
 const int ALPH_LENGTH = 33;
 
-const KeyWord key_words[NUM_OF_KEY_WORDS] = {{"сделаешь-шаг", kIf},
-                                             {"покуда-льется-свет", kWhile},
-                                             {"удержи-меня", kContinue},
-                                             {"переступи-порог", kBreak},
-                                             {"вернулся-волком", kReturn},
-                                             {"отвечай-же-скорей", kIn},
-                                             {"говорила-она", kOut},
-                                             {"я-покажу-тебе-маршрут", kFunc},
-                                             {"знай-же", kVarInit},
-                                             {"спешит-в-другую-сторону", kElse},
-                                             {"нарисуй", kDraw}};
+const KeyWord key_words[NUM_OF_KEY_WORDS] = {{"Г±Г¤ГҐГ«Г ГҐГёГј-ГёГ ГЈ", kIf},
+                                             {"ГЇГ®ГЄГіГ¤Г -Г«ГјГҐГІГ±Гї-Г±ГўГҐГІ", kWhile},
+                                             {"ГіГ¤ГҐГ°Г¦ГЁ-Г¬ГҐГ­Гї", kContinue},
+                                             {"ГЇГҐГ°ГҐГ±ГІГіГЇГЁ-ГЇГ®Г°Г®ГЈ", kBreak},
+                                             {"ГўГҐГ°Г­ГіГ«Г±Гї-ГўГ®Г«ГЄГ®Г¬", kReturn},
+                                             {"Г®ГІГўГҐГ·Г Г©-Г¦ГҐ-Г±ГЄГ®Г°ГҐГ©", kIn},
+                                             {"ГЈГ®ГўГ®Г°ГЁГ«Г -Г®Г­Г ", kOut},
+                                             {"Гї-ГЇГ®ГЄГ Г¦Гі-ГІГҐГЎГҐ-Г¬Г Г°ГёГ°ГіГІ", kFunc},
+                                             {"Г§Г­Г Г©-Г¦ГҐ", kVarInit},
+                                             {"Г±ГЇГҐГёГЁГІ-Гў-Г¤Г°ГіГЈГіГѕ-Г±ГІГ®Г°Г®Г­Гі", kElse},
+                                             {"Г­Г Г°ГЁГ±ГіГ©", kDraw}};
 
 Buffer Tokenize (const char * filename)
 {
@@ -157,7 +157,7 @@ int FindKeywordIndex (const char * name)
     int count = 0;
 
     for (count = 0; count < NUM_OF_KEY_WORDS; count++)
-    {                                                  // алгоритм Рабина-Карпа (хэширование)
+    {                                                  // Г Г«ГЈГ®Г°ГЁГІГ¬ ГђГ ГЎГЁГ­Г -ГЉГ Г°ГЇГ  (ГµГЅГёГЁГ°Г®ГўГ Г­ГЁГҐ)
         if (strcmp(name, key_words[count].name) == 0)
             return count;
     }
@@ -356,7 +356,7 @@ bool IsMathOp (char * pos)
         *pos == '+' || *pos == '-' || *pos == '*' || *pos == '/'||
         *pos == '^')
         return true;
-    //else if (strcmp(pos, "будет") == 0)
+    //else if (strcmp(pos, "ГЎГіГ¤ГҐГІ") == 0)
         //return true;
 
     return false;
