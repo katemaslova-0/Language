@@ -85,9 +85,9 @@ void PrintKeyword (Node * current, FILE * fp)
     {
         case kIf:       PrintIf(current, fp);           break;
         case kWhile:    PrintWhile(current, fp);        break;
-        case kContinue: fprintf(fp, "óäåðæè-ìåíÿ");     break;
-        case kBreak:    fprintf(fp, "ïåðåñòóïè-ïîðîã"); break;
-        case kReturn:   fprintf(fp, "âåðíóëñÿ-âîëêîì"); break;
+        case kContinue: fprintf(fp, "Ã³Ã¤ÄºÄ‘Ä‡Ä-Ä›ÄºÃ­Ë™");     break;
+        case kBreak:    fprintf(fp, "ÄÄºÄ‘ÄºÅ„ÅˆÃ³ÄÄ-ÄÃ®Ä‘Ã®Äƒ"); break;
+        case kReturn:   fprintf(fp, "Ã¢ÄºÄ‘Ã­Ã³Ã«Å„Ë™-Ã¢Ã®Ã«Ä™Ã®Ä›"); break;
         case kIn:       PrintIn(current, fp);           break;
         case kOut:      PrintOut(current, fp);          break;
         case kFunc:     PrintFuncInit(current, fp);     break;
@@ -103,7 +103,7 @@ void PrintFuncInit (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "ÿ-ïîêàæó-òåáå-ìàðøðóò ");
+    fprintf(fp, "Ë™-ÄÃ®Ä™Å•Ä‡Ã³-ÅˆÄºÃ¡Äº-Ä›Å•Ä‘Å™Ä‘Ã³Åˆ ");
     PrintFunc(current->left, fp);
 }
 
@@ -113,7 +113,7 @@ void PrintOut (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "ãîâîðèëà-îíà(");
+    fprintf(fp, "ÄƒÃ®Ã¢Ã®Ä‘ÄÃ«Å•-Ã®Ã­Å•(");
     PrintE(current->left, fp);
     fprintf(fp, ")");
 }
@@ -124,7 +124,7 @@ void PrintIn (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "îòâå÷àé-æå-ñêîðåé(");
+    fprintf(fp, "Ã®ÅˆÃ¢ÄºÃ·Å•Ã©-Ä‡Äº-Å„Ä™Ã®Ä‘ÄºÃ©(");
     PrintE(current->left, fp);
     fprintf(fp, ")");
 }
@@ -135,7 +135,7 @@ void PrintWhile (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "ïîêóäà-ëüåòñÿ-ñâåò (");
+    fprintf(fp, "ÄÃ®Ä™Ã³Ã¤Å•-Ã«Ã¼ÄºÅˆÅ„Ë™-Å„Ã¢ÄºÅˆ (");
     PrintE(current->left, fp);
     fprintf(fp, ")\n{\n");
 
@@ -150,7 +150,7 @@ void PrintIf (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "ñäåëàåøü-øàã (");
+    fprintf(fp, "Å„Ã¤ÄºÃ«Å•ÄºÅ™Ã¼-Å™Å•Äƒ (");
     PrintE(current->left, fp);
     fprintf(fp, ")\n{\n");
 
@@ -168,7 +168,7 @@ void PrintElse (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "ñïåøèò-â-äðóãóþ-ñòîðîíó\n{\n");
+    fprintf(fp, "Å„ÄÄºÅ™ÄÅˆ-Ã¢-Ã¤Ä‘Ã³ÄƒÃ³Å£-Å„ÅˆÃ®Ä‘Ã®Ã­Ã³\n{\n");
     PrintLine(current->right, fp);
     fprintf(fp, "}");
 }
@@ -212,7 +212,7 @@ void PrintVarEq (Node * current, FILE * fp)
     assert(current);
     assert(fp);
 
-    fprintf(fp, "çíàé-æå %s = ", current->value.name.name);
+    fprintf(fp, "Ã§Ã­Å•Ã©-Ä‡Äº %s = ", current->value.name.name);
 
     current = current->left;
 
